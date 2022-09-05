@@ -30,8 +30,10 @@ Revisão feita <br />
 A função printf permite apresentar na tela os valores de qualquer tipo  de dado. Para tanto, ela utiliza um mecanismo de formatação que permite traduzir a representação interna em variáveis para a representação ASCII que pode ser mostrada na tela.
 
 # Questão 5 e 6:
-Desenvolvidas no código p1.c <br />
+Desenvolvidas no código p1.c
+
 Exemplo de saída do programa:
+
 Software reset via esp_restart. <br />
 IDF Version: v4.4.2 <br />
 Restarting in 3 seconds... <br />
