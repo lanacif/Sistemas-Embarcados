@@ -1,52 +1,26 @@
-# Hello World Example
+# Questão 1: 
+ok
 
-Starts a FreeRTOS task to print "Hello World".
+# Questão 2: 
+- Pra GPIO4 subida e descida. Para GPIO4 subida.
+- O programa tem 2 taks a app_main e a gpio_task_example.
+- A gpio_task_example é pioritária em relação à app_main, ele é bloqueada quando os argumentos da fila do tipo de comunicação interrupt-to-task chega ao final. A app_main entra em bloqueio pelo vTaskDelay.
+- O programa configura as IO's, interrupções, fila, e as tasks faladas acima. Quando uma interrupção é gerada a fila é incrementada com o numero do pino que gerou a interrupção. A task de exemplo esvazia a fila printando o pino que gerou a interrupção e o valor na porta.
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+Exemplo da saída:
 
-## How to use example
+GPIO[4] intr, val: 0 <br />
+cnt: 1489 <br />
+GPIO[4] intr, val: 1 <br />
+GPIO[5] intr, val: 1 <br />
+cnt: 1490 <br />
+GPIO[4] intr, val: 0 <br />
+cnt: 1491 <br />
+GPIO[4] intr, val: 1 <br />
+GPIO[5] intr, val: 1 <br />
+cnt: 1492 <br />
+GPIO[4] intr, val: 0 <br />
 
-Follow detailed instructions provided specifically for this example. 
-
-Select the instructions depending on Espressif chip installed on your development board:
-
-- [ESP32 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
-- [ESP32-S2 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html)
-
-
-## Example folder contents
-
-The project **hello_world** contains one source file in C language [hello_world_main.c](main/hello_world_main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both). 
-
-Below is short explanation of remaining files in the project folder.
-
-```
-├── CMakeLists.txt
-├── example_test.py            Python script used for automated example testing
-├── main
-│   ├── CMakeLists.txt
-│   ├── component.mk           Component make file
-│   └── hello_world_main.c
-├── Makefile                   Makefile used by legacy GNU Make
-└── README.md                  This is the file you are currently reading
-```
-
-For more information on structure and contents of ESP-IDF projects, please refer to Section [Build System](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html) of the ESP-IDF Programming Guide.
-
-## Troubleshooting
-
-* Program upload failure
-
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
-
-## Technical support and feedback
-
-Please use the following feedback channels:
-
-* For technical queries, go to the [esp32.com](https://esp32.com/) forum
-* For a feature request or bug report, create a [GitHub issue](https://github.com/espressif/esp-idf/issues)
-
-We will get back to you as soon as possible.
+# Questão 3:
+Feita no algoritimo p2.c <br />
+OBS: O kit utilizado foi o V4, portanto por não ter um led fisicamente conectado no IO2 escolheu-se o IO4 para conectar um led externamente.
