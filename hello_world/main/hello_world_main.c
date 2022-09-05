@@ -40,5 +40,4 @@ void app_main(void)
     printf("Restarting now.\n");
     fflush(stdout);
     esp_restart();
-    NULL;
 }
