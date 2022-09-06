@@ -49,7 +49,7 @@ void app_main(void)
     //set led = low
     gpio_set_level(GPIO_OUTPUT_IO_0, LED_flag);
 
-    while(1) {
+    while(1) { //Aqui você pode tirar o while(1) - o micro entra em Idle.
         
     }
 }
