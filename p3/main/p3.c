@@ -150,8 +150,8 @@ void app_main(void)
     //configure GPIO with the given settings
     gpio_config(&io_conf);
 
-    //interrupt of fall edge
-    io_conf.intr_type = GPIO_INTR_NEGEDGE;
+    //interrupt of rise edge
+    io_conf.intr_type = GPIO_INTR_POSEDGE;
     //bit mask of the pins
     io_conf.pin_bit_mask = GPIO_INPUT_PIN_SEL;
     //set as input mode
@@ -166,5 +166,4 @@ void app_main(void)
     gpio_isr_handler_add(GPIO_INPUT_IO_0, gpio_isr_handler, NULL);
 
     timer_start(TIMER_GROUP_0, TIMER_0);
-    
 }
