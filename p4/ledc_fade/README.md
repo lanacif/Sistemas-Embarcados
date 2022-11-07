@@ -10,9 +10,11 @@ ok
 3. Fixando o DUTY em 4000 por 1s
 4. Fixando o DUTY em 0 por 1s
 
-- A frequência utilizada é de 5 kHz
+- Os IO's 4 e 5 estão invertidos.
 
-- O duty cicle para cada situação foi citado acima
+- A frequência utilizada é de 5 kHz.
+
+- O duty cicle para cada situação foi citado acima.
 
 Exemplo da saída:
 
