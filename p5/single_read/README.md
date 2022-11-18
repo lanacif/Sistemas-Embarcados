@@ -35,7 +35,7 @@ cali - 2.594 V
 raw - 4.095 V
 cali - 3.112 V
 
-![alt text](http://url/to/img.png)
+![alt text](http://url/to/curva.png)
 
 ### Questão 3
 
