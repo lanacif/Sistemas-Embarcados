@@ -34,5 +34,7 @@ cali - 2.594 V
 * Medição 10
 raw - 4.095 V
 cali - 3.112 V
+
+![curva](https://user-images.githubusercontent.com/112179634/202597874-91571b68-b6db-410a-829f-e5a4c706576d.jpg)
 ### Questão 3
 ???
