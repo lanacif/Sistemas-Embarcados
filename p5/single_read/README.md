@@ -1,55 +1,39 @@
-# ADC Single Read Example
+# Questão 1
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+ok
 
-This example demonstrates the following:
+## Questão 2
 
-- How to obtain a single ADC reading from a GPIO pin using the ADC Driver's Single Read function
-- How to use the ADC Calibration functions to obtain a calibrated result (in mV)
+* Medição 1
+raw - 0 V
+cali - 0.128 V
+* Medição 2
+raw - 0.272 V
+cali - 0.348 V
+* Medição 3
+raw - 0.663 V
+cali - 0.666 V
+* Medição 4
+raw - 1.071 V
+cali - 0.994 V
+* Medição 5
+raw - 1.471 V
+cali - 1.317 V
+* Medição 6
+raw - 1.871 V
+cali - 1.640 V
+* Medição 7
+raw - 2.269 V
+cali - 1.956 V
+* Medição 8
+raw - 2.661 V
+cali - 2.280 V
+* Medição 9 
+raw - 3.033 V
+cali - 2.594 V
+* Medição 10
+raw - 4.095 V
+cali - 3.112 V
 
-## How to use example
+### Questão 3
 
-### Hardware Required
-
-* A development board with ESP32 SoC (e.g., ESP32-DevKitC, ESP-WROVER-KIT, etc.)
-* A USB cable for power supply and programming
-
-In this example, you need to connect a voltage source (e.g. a DC power supply) to the GPIO pins specified in `single_read.c` (see the macros defined on the top of the source file). Feel free to modify the pin setting.
-
-### Build and Flash
-
-Build the project and flash it to the board, then run monitor tool to view serial output:
-
-```
-idf.py -p PORT flash monitor
-```
-
-(To exit the serial monitor, type ``Ctrl-]``.)
-
-See the Getting Started Guide for full steps to configure and use ESP-IDF to build projects.
-
-## Example Output
-
-Running this example, you will see the following log output on the serial monitor:
-
-```
-I (302) ADC1_CH2: raw  data: 4095
-I (302) ADC1_CH2: cali data: 3109 mV
-I (1302) ADC2_CH0: raw  data: 0
-I (1302) ADC2_CH0: cali data: 0 mV
-I (2302) ADC1_CH2: raw  data: 4095
-I (2302) ADC1_CH2: cali data: 3109 mV
-I (3302) ADC2_CH0: raw  data: 0
-I (3302) ADC2_CH0: cali data: 0 mV
-I (4302) ADC1_CH2: raw  data: 4095
-I (4302) ADC1_CH2: cali data: 3109 mV
-...
-```
-
-## Troubleshooting
-
-If following warning is printed out, it means the calibration required eFuse bits are not burnt correctly on your board. The calibration will be skipped. Only raw data will be printed out.
-```
-W (300) ADC SINGLE: eFuse not burnt, skip calibration
-I (1310) ADC2_CH0: raw  data: 2715
-```
