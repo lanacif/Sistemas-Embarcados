@@ -17,7 +17,7 @@
 //Novo timer / canal / gpio
 #define NOVO_TIMER_HS          LEDC_TIMER_1
 #define NOVO_HS_CH4_CHANNEL    LEDC_CHANNEL_4
-#define NOVO_HS_CH4_GPIO       (2)
+#define NOVO_HS_CH4_GPIO       (23)
 
 #define LEDC_HS_TIMER          LEDC_TIMER_0
 #define LEDC_HS_MODE           LEDC_HIGH_SPEED_MODE
@@ -66,22 +66,23 @@ static void IRAM_ATTR gpio_isr_handler(void* arg)
 static void gpio_task_example(void* arg)
 {
     ledc_channel_config_t *canal = calloc(1, sizeof(ledc_channel_config_t));
-    //uint32_t duty_atual;
-    canal->duty = 100;
+    int teste = 0;
+    
     for(;;) {
         if(xQueueReceive(gpio_evt_queue, canal, portMAX_DELAY)) {
             //Se duty_atual < 1000 duty = duty + 100
-            if(canal->duty < 1000){
-                //ledc_set_duty(arg.speed_mode, arg.channel, duty_atual + 100);
-                //ledc_update_duty(ledc_channel[NOVO_HS_CH4_CHANNEL].speed_mode, ledc_channel[NOVO_HS_CH4_CHANNEL].channel);
+            if(teste < 1000){
+                teste = teste + 100;
+                ledc_set_duty(canal->speed_mode, canal->channel, teste);
+                ledc_update_duty(canal->speed_mode, canal->channel);
             }
             else //Se não set duty = 0
             {
-                //ledc_set_duty(ledc_channel[NOVO_HS_CH4_CHANNEL].speed_mode, ledc_channel[NOVO_HS_CH4_CHANNEL].channel, 0);
-                //ledc_update_duty(ledc_channel[NOVO_HS_CH4_CHANNEL].speed_mode, ledc_channel[NOVO_HS_CH4_CHANNEL].channel);
-
+                teste = 0;
+                ledc_set_duty(canal->speed_mode, canal->channel, teste);
+                ledc_update_duty(canal->speed_mode, canal->channel);
             }
-            printf("Duty no gpio 2: %d \n", canal->duty);
+            printf("Duty no gpio 2: %d \n", teste);
         }
     }
 }
@@ -173,7 +174,7 @@ void app_main(void)
     //Novo canal
     ledc_channel_config_t novo_canal = {
         .channel    = NOVO_HS_CH4_CHANNEL,
-        .duty       = 500,
+        .duty       = 0,
         .gpio_num   = NOVO_HS_CH4_GPIO,
         .speed_mode = LEDC_HS_MODE,
         .hpoint     = 0,
@@ -214,7 +215,7 @@ void app_main(void)
     gpio_config(&io_conf);
 
     //create a queue to handle gpio event from isr
-    gpio_evt_queue = xQueueCreate(5, sizeof(uint32_t));
+    gpio_evt_queue = xQueueCreate(5, sizeof(ledc_channel_config_t));
     //start gpio task
     xTaskCreate(gpio_task_example, "gpio_task_example", 2048, NULL, 10, NULL);
 
