@@ -72,7 +72,7 @@ static void gpio_task_example(void* arg)
         if(xQueueReceive(gpio_evt_queue, canal, portMAX_DELAY)) {
             //Se duty_atual < 1000 duty = duty + 100
             if(teste < 1000){
-                teste = teste + 100;
+                teste += 100;
                 ledc_set_duty(canal->speed_mode, canal->channel, teste);
                 ledc_update_duty(canal->speed_mode, canal->channel);
             }
