@@ -35,8 +35,8 @@ As mensagens de qos1 são respondidas pelo broker e o esp_mqtt_client_register_e
 > DATA=data
 ```
 
-## Passos 2 a 4
+# Passos 2 a 4
 
 Feito!
 
-### Questão 5
+# Questão 5
