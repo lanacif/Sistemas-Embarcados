@@ -7,9 +7,9 @@ No algoritmo, quando a conexão mqtt é estabelecida, ocorre a seguinte sequênc
 * Msg de solicitação de inscrição de qos1 no tópico "/topic/qos1" e o print do id da mensagem;
 * Msg de solicitação de desinscrição do tópico "/topic/qos1" e o print do id da mensagem;
 
-Terminal
+Monitor device:
 
-> I (12598) MQTT_EXAMPLE: Other event id:7 (ocorreu algum evento antes da conexão bem sucedida que não está enumerado pelo esp)
+> `rgb(9, 105, 218)` I (12598) MQTT_EXAMPLE: Other event id:7 (ocorreu algum evento antes da conexão bem sucedida que não está enumerado pelo esp)
 > I (13538) MQTT_EXAMPLE: MQTT_EVENT_CONNECTED
 > I (13538) MQTT_EXAMPLE: sent publish successful, msg_id=59203
 > I (13538) MQTT_EXAMPLE: sent subscribe successful, msg_id=18930
