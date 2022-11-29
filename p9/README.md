@@ -18,7 +18,7 @@ Monitor device:
 > I (13548) MQTT_EXAMPLE: sent unsubscribe successful, msg_id=52786
 ```
 
-As mensagens de qos1 são responodidas pelo broker e o esp_mqtt_client_register_event aciona a função mqtt_event_handler a cada retorno do broker. A função chamada gera a seguinte sequência de reports:
+As mensagens de qos1 são respondidas pelo broker e o esp_mqtt_client_register_event aciona a função mqtt_event_handler a cada retorno do broker. A função chamada gera a seguinte sequência de reports:
 
 ```diff
 > I (13838) MQTT_EXAMPLE: MQTT_EVENT_PUBLISHED, msg_id=59203 (O broker retornou resposta do primeiro publish de qos1)
