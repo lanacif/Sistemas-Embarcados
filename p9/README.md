@@ -2,10 +2,10 @@
 
 No algoritmo, quando a conexão mqtt é estabelecida, ocorre a seguinte sequência eventos:
 
-* Disparo de 1 mensagem com a informação "data_3" de qos1 no tópico "/topic/qos1" e o print do id da mensagem enviada;
-* Msg de solicitação de inscrição de qos0 no tópico "/topic/qos0" e o print do id da mensagem;
-* Msg de solicitação de inscrição de qos1 no tópico "/topic/qos1" e o print do id da mensagem;
-* Msg de solicitação de desinscrição do tópico "/topic/qos1" e o print do id da mensagem;
+* Disparo de 1 mensagem com a informação "data_3" de qos1 no tópico "/topic/qos1" e o print do id da mensagem enviada
+* Msg de solicitação de inscrição de qos0 no tópico "/topic/qos0" e o print do id da mensagem
+* Msg de solicitação de inscrição de qos1 no tópico "/topic/qos1" e o print do id da mensagem
+* Msg de solicitação de desinscrição do tópico "/topic/qos1" e o print do id da mensagem
 
 Monitor device:
 
