@@ -9,12 +9,16 @@ No algoritmo, quando a conexão mqtt é estabelecida, ocorre a seguinte sequênc
 
 Monitor device:
 
-> `rgb(9, 105, 218)dfd sadw` I (12598) MQTT_EXAMPLE: Other event id:7 (ocorreu algum evento antes da conexão bem sucedida que não está enumerado pelo esp)
+<span style="color: green">
+
+>  I (12598) MQTT_EXAMPLE: Other event id:7 (ocorreu algum evento antes da conexão bem sucedida que não está enumerado pelo esp)
 > I (13538) MQTT_EXAMPLE: MQTT_EVENT_CONNECTED
 > I (13538) MQTT_EXAMPLE: sent publish successful, msg_id=59203
 > I (13538) MQTT_EXAMPLE: sent subscribe successful, msg_id=18930
 > I (13538) MQTT_EXAMPLE: sent subscribe successful, msg_id=61502
 > I (13548) MQTT_EXAMPLE: sent unsubscribe successful, msg_id=52786
+
+</span>
 
 As mensagens de qos1 são responodidas pelo broker e o esp_mqtt_client_register_event aciona a função mqtt_event_handler a cada retorno do broker. A função chamada gera a seguinte sequência de reports:
 
