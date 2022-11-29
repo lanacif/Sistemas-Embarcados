@@ -9,14 +9,16 @@ No algoritmo, quando a conexão mqtt é estabelecida, ocorre a seguinte sequênc
 
 Monitor device:
 
-<span style="color: green">
+```diff
 
->  I (12598) MQTT_EXAMPLE: Other event id:7 (ocorreu algum evento antes da conexão bem sucedida que não está enumerado pelo esp)
-> I (13538) MQTT_EXAMPLE: MQTT_EVENT_CONNECTED
+> +I (12598) MQTT_EXAMPLE: Other event id:7 (ocorreu algum evento antes da conexão bem sucedida que não está enumerado pelo esp)
+> + I (13538) MQTT_EXAMPLE: MQTT_EVENT_CONNECTED
 > I (13538) MQTT_EXAMPLE: sent publish successful, msg_id=59203
 > I (13538) MQTT_EXAMPLE: sent subscribe successful, msg_id=18930
 > I (13538) MQTT_EXAMPLE: sent subscribe successful, msg_id=61502
 > I (13548) MQTT_EXAMPLE: sent unsubscribe successful, msg_id=52786
+
+```
 
 </span>
 
