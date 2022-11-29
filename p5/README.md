@@ -2,7 +2,7 @@
 
 Ok
 
-## Questão 2
+# Questão 2
 
 * Medição 1:
 
@@ -66,6 +66,6 @@ cali - 3.112 V
 
 ![alt text](img/curva.jpg)
 
-### Questão 3
+# Questão 3
 
 Arquivo p5.c
