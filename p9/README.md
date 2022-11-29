@@ -60,3 +60,9 @@ p{color:Black !important;}
 ## Second Heading
 
 This is a test to see how the colors work.
+
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
