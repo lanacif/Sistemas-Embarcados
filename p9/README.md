@@ -41,5 +41,5 @@ Feito!
 
 # Questão 5
 
-![alt text](img/1.jpeg)
+![alt text](img/1.jpg)
 <img src="img/2.jpeg" alt="drawing" width="200"/>
