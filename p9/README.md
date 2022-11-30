@@ -40,3 +40,6 @@ As mensagens de qos1 são respondidas pelo broker e o esp_mqtt_client_register_e
 Feito!
 
 # Questão 5
+
+![alt text](img/1.bmp)
+![alt text](img/2.jpeg)
