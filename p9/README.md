@@ -22,11 +22,11 @@ As mensagens de qos1 são respondidas pelo broker e o esp_mqtt_client_register_e
 
 ```diff
 > I (13838) MQTT_EXAMPLE: MQTT_EVENT_PUBLISHED, msg_id=59203 (O broker retornou resposta do primeiro publish de qos1)
-> I (14148) MQTT_EXAMPLE: MQTT_EVENT_SUBSCRIBED, msg_id=18930 (O broker retornou resposta da primeira inscrição de qos0, ele deveria fazer isso?)
-> I (14158) MQTT_EXAMPLE: sent publish successful, msg_id=0 (Quando a rotina do esp32 recebe a confirmação de inscrição ele envia outra mensagem de qos0 com a informação "data")
-> I (14158) MQTT_EXAMPLE: MQTT_EVENT_SUBSCRIBED, msg_id=61502 (O broker retornou resposta da inscrição de qos1)
-> I (14158) MQTT_EXAMPLE: sent publish successful, msg_id=0 (Novamente, quando a rotina do esp32 recebe a confirmação de inscrição ele envia outra mensagem de qos0 com a informação "data")
-> I (14168) MQTT_EXAMPLE: MQTT_EVENT_UNSUBSCRIBED, msg_id=52786 (O broker retornou resposta da desinscrição, a desinscrição não tem qos?)
+> I (14148) MQTT_EXAMPLE: MQTT_EVENT_SUBSCRIBED, msg_id=18930 (O broker retornou resposta da primeira inscrição no tópicp de qos0)
+> I (14158) MQTT_EXAMPLE: sent publish successful, msg_id=0 (Quando a rotina do esp32 recebe a confirmação de inscrição ele envia outra mensagem de qos0 com a string "data")
+> I (14158) MQTT_EXAMPLE: MQTT_EVENT_SUBSCRIBED, msg_id=61502 (O broker retornou resposta da inscrição no tópico de qos1)
+> I (14158) MQTT_EXAMPLE: sent publish successful, msg_id=0 (Novamente, quando a rotina do esp32 recebe a confirmação de inscrição ele envia outra mensagem de qos0 com a string "data")
+> I (14168) MQTT_EXAMPLE: MQTT_EVENT_UNSUBSCRIBED, msg_id=52786 (O broker retornou resposta da desinscrição)
 > I (14458) MQTT_EXAMPLE: MQTT_EVENT_DATA (Mensagem recebida do broker que foi enviada pela própria rotina do esp32 ao inscrever em um tópico, mas como o esp32 estava inscrito no mesmo tópico que enviou a mensagem ele também recebe a msg)
 > TOPIC=/topic/qos0
 > DATA=data
