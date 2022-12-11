@@ -42,17 +42,11 @@
 //Atenuação do ADC
 #define ADC_POT_ATEN           ADC_ATTEN_DB_11
 
-//static const char *TAG_CH = {"ADC1_CH6"};
 static const char *TAG = "MQTT";
+static const char *TAG2 = "Trabalho Final";
 
 static xQueueHandle fila_pwm = NULL;
 static xQueueHandle fila_adc = NULL;
-
-//typedef struct{
-    //PWM
-    //ADC
-//} pwm_adc_t;
-
 
 static void log_error_if_nonzero(const char *message, int error_code)
 {
@@ -160,7 +154,7 @@ static void pwm_task(void* arg)
     //Configurações do Timer que será usado para o PWM
     ledc_timer_config_t ledc_timer = {
         .duty_resolution = LEDC_TIMER_12_BIT,    //Resolução do duty
-        .freq_hz = 10000,                        //Frequência do PWM
+        .freq_hz = 50,                        //Frequência do PWM
         .speed_mode = LEDC_HS_MODE,              //Modo do timer
         .timer_num = LEDC_HS_TIMER,              //índice do timer
         .clk_cfg = LEDC_AUTO_CLK,                //Seleção automática da fonte de clock
@@ -171,20 +165,16 @@ static void pwm_task(void* arg)
     //Configurações do canal que será usado para o PWM
     ledc_channel_config_t ledc_channel = {
         .channel    = LEDC_HS_CH0_CHANNEL,
-        .duty       = 0,
+        .duty       = 200,
         .gpio_num   = LEDC_HS_CH0_GPIO,
         .speed_mode = LEDC_HS_MODE,
         .hpoint     = 0,
         .timer_sel  = LEDC_HS_TIMER,
-        .flags.output_invert = 0
+        .flags.output_invert = 1
     };
     
     //Set do canal do PWM
     ledc_channel_config(&ledc_channel);
-
-    //O duty inicial e mínimo é 200
-    ledc_set_duty(ledc_channel.speed_mode, ledc_channel.channel, 200);
-    ledc_update_duty(ledc_channel.speed_mode, ledc_channel.channel);
     
     uint32_t valor_convertido_adc;
 
@@ -209,9 +199,9 @@ void app_main(void)
     xTaskCreate(adc_task, "adc_task", 2048, NULL, 10, NULL);
 
     //Print de infos
-    ESP_LOGI(TAG, "[APP] Startup..");
-    ESP_LOGI(TAG, "[APP] Free memory: %d bytes", esp_get_free_heap_size());
-    ESP_LOGI(TAG, "[APP] IDF version: %s", esp_get_idf_version());
+    ESP_LOGI(TAG2, "[APP] Startup..");
+    ESP_LOGI(TAG2, "[APP] Free memory: %d bytes", esp_get_free_heap_size());
+    ESP_LOGI(TAG2, "[APP] IDF version: %s", esp_get_idf_version());
 
     esp_log_level_set("*", ESP_LOG_INFO);
     esp_log_level_set("MQTT_CLIENT", ESP_LOG_VERBOSE);
