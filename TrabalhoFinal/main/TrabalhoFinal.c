@@ -48,6 +48,11 @@ static const char *TAG2 = "Trabalho Final";
 static xQueueHandle fila_pwm = NULL;
 static xQueueHandle fila_adc = NULL;
 
+typedef struct {
+    int valor_convertido;
+    esp_mqtt_client_handle_t cliente;
+} adc_cliente_t;
+
 static void log_error_if_nonzero(const char *message, int error_code)
 {
     if (error_code != 0) {
@@ -61,7 +66,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     esp_mqtt_event_handle_t event = event_data;
     esp_mqtt_client_handle_t client = event->client;
     int msg_id;
-    int valor_convertido;
+    adc_cliente_t para_adc;
     char *string_sem_lixo = malloc(4);
 
     switch ((esp_mqtt_event_id_t)event_id) {
@@ -88,8 +93,9 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
         printf("DATA=%.*s\r\n", event->data_len, event->data);
         snprintf(string_sem_lixo, 4, "%.*s", event->data_len, event->data);
-        valor_convertido = atoi(string_sem_lixo);
-        xQueueSendFromISR(fila_adc, &valor_convertido, NULL);
+        para_adc.valor_convertido = atoi(string_sem_lixo);
+        para_adc.cliente = client;
+        xQueueSendFromISR(fila_adc, &para_adc, NULL);
         break;
     case MQTT_EVENT_ERROR:
         ESP_LOGI(TAG, "MQTT_EVENT_ERROR");
@@ -126,22 +132,26 @@ static void adc_task(void* arg)
     ESP_ERROR_CHECK(adc1_config_width(ADC_WIDTH_BIT_DEFAULT));
     ESP_ERROR_CHECK(adc1_config_channel_atten(ADC_POT, ADC_POT_ATEN));
     
-    int valor_recebido_mqtt;
+    adc_cliente_t recebido_mqtt;
+    char *str_limite = malloc(4);
     float limite_adc;
     uint32_t valor_ajustado;
     int msg_id;
 
     for(;;) {
-        if(xQueueReceive(fila_adc, &valor_recebido_mqtt, portMAX_DELAY)) {
+        if(xQueueReceive(fila_adc, &recebido_mqtt, portMAX_DELAY)) {
             //Aplica a correção no valor lido do adc (ax+b)
             limite_adc = 0.0415*adc1_get_raw(ADC_POT) + 200;
 
             //Casas decimais desconsideradas float -> uint32
-            valor_ajustado = (limite_adc-200)/(370-200)*(valor_recebido_mqtt-200) + 200;
+            valor_ajustado = (limite_adc-200)/(370-200)*(recebido_mqtt.valor_convertido-200) + 200;
+
+            //Converte o inteiro em string
+            sprintf(str_limite, "%d", (int)limite_adc);
 
             //Publica
-            //msg_id = esp_mqtt_client_publish(client, "adc", "data_3", 0, 1, 0);
-            //ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
+            msg_id = esp_mqtt_client_publish(recebido_mqtt.cliente, "adc", str_limite, 0, 1, 0);
+            ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
 
             //xQueueSend() é equivalente a xQueueSendToBack()
             xQueueSendToBack(fila_pwm, &valor_ajustado, portMAX_DELAY);
@@ -192,7 +202,7 @@ void app_main(void)
 {
     //Criando a filas
     fila_pwm = xQueueCreate(5, sizeof(uint32_t));
-    fila_adc = xQueueCreate(5, sizeof(int));
+    fila_adc = xQueueCreate(5, sizeof(adc_cliente_t));
     //Starta a task do pwm
     xTaskCreate(pwm_task, "pwm_task", 2048, NULL, 10, NULL);
     //Starta a task do adc
