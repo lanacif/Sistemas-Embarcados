@@ -41,7 +41,7 @@ Para isso, o algoritmo implementado no esc seguirá o seguinte fluxograma:
 
 ## Resultados
 * Diagrama de conexões:
-<img src="img/esquema.jpeg" alt="drawing" width="200"/>
+<img src="img/esquema.jpeg" alt="drawing" width="500"/>
 
 * Sinal esperado pelo ESC: 
 
