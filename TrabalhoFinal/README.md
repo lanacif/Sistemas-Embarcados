@@ -30,7 +30,7 @@ As tarefas que devem ser executadas podem ser abstraidas em 4 etapas:
 4. (ESP32) escrever o duty correspondente aos valores tratados: I/O ESP32 -> ESC
 
 Para isso, o algoritmo implementado no esc seguirá o seguinte fluxograma:
-<img src="img/fluxograma.jpg" alt="drawing" width="500"/>
+<img src="img/fluxograma.jpg" alt="drawing" width="550"/>
 
 ## Metodologia
 <p align="justify"> Inicialmente, utilizando o osciloscópio a fonte e o testador de servo motor, estudou-se as características do sinal que deve ser aplicado no ESC para que ele atue no controle da velocidade do motor. Conhecendo esse sinal PWM a frequência  foi definida como 50 Hz e a resolução escolhida para o PWM foi de 12 bits. Como a largura do pulso do sinal do testador de servo varia entre 1,2 e 1,8 ms, para a resolução escolhida foi necessário descobrir o valor do duty equivalente. Isso poderia ser feito por cálculos, porém optou-se por criar um pequeno algoritimo para ler o valor de um ADC de 12 bits controlado por um potênciometro e escrever esse valor no duty de um PWM de mesma resolução. Dessa forma, com o auxílio do osciloscópio e do monitor device printando o valor lido pelo ADC, foi possível descobrir os valores máximos e mínimos de duty que serão utilizados. </p>
