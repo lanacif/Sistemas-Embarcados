@@ -38,6 +38,6 @@ A velocidade motor escolhido é controlada por um dispositivo chamado ESC (Eletr
 Para finalizar o sinal de controle, tendo em vista o objetivo apresentado na introdução, de poder aproveitar toda a escala do dashboard MQTT, uma segunda equação de reta foi elaborada. Essa segunda equação de reta recebe o duty do dashboard (que foi descoberto no experimento descrito acima. Entre 200 e 370) e associa com o valor limite lido do ADC e convertido pela primeira equação de reta. 
 
 ## Resultados
-<iframe width="560" height="315" src="https://www.youtube.com/embed/E8DwFq17tEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://user-images.githubusercontent.com/17216806/208154825-9b3a83bf-c3ea-4dc5-98c9-ad73fdb5bb8e.mp4
 
 ## Conclusões
