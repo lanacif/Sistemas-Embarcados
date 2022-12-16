@@ -52,6 +52,7 @@ Coeficientes: a = 0,0415 e b = 200
 
 <html>
     <br />
+    <br />
 </html>
 
 * 2ª Equação de reta:
