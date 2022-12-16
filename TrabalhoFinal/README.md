@@ -1,7 +1,7 @@
 # Trabalho Final
 
 ## Introdução
-A fim de aplicar o conhecimento adquirido na disciplina de sistemas embarcado foi desenvolvido um trabalho cujo o objetivo é controlar a velocidade de um motor brushless através de um smartphone, via protocolo MQTT. Além disso, poder limitar a velocidade máxima do motor por meio de um potenciômetro de forma que a escala do cursor em um dashboard MQTT no smartphone seja completamente aproveitada. A escolha do trabalho foi feita visando a oportunidade de aplicar os seguintes tópicos aprendidos no decorrer do curso: Periféricos (I/O, PWM, ADC); Sistema de comunicação (MQTT, WIFI); Tasks (x2); Interrupção; fila. Dessa forma, o trabalho escolhido contempla boa parte do que foi lecionado durante o semestre.
+A fim de aplicar o conhecimento adquirido na disciplina de sistemas embarcado foi desenvolvido um trabalho cujo o objetivo é controlar a velocidade de um motor brushless através de um smartphone via protocolo MQTT. Além disso, poder limitar a velocidade máxima do motor por meio de um potenciômetro de forma que a escala do cursor em um dashboard MQTT no smartphone seja completamente aproveitada. A escolha do trabalho foi feita visando a oportunidade de aplicar os seguintes tópicos aprendidos no decorrer do curso: Periféricos (I/O, PWM, ADC); Sistema de comunicação (MQTT, WIFI); Tasks (x2); Interrupção; fila. Dessa forma, o trabalho escolhido contempla boa parte do que foi lecionado durante o semestre.
 
 ## Materiais
 * 1x ESP32-V3
@@ -17,14 +17,15 @@ A fim de aplicar o conhecimento adquirido na disciplina de sistemas embarcado fo
 * 2x Conector banana - jacaré
 * Testador de servo motor genérico
 * Osciloscópio
+* Protoboard
 
 ## Descritivo do funcionamento
-Para compreender o desenvolvimento do trabalho é preciso conhecer brevemente sobre o funcionamento dos equipamentos. 
-A velocidade motor escolhido é controlada por um dispositivo chamado ESC (Eletronic Speed Controller), todo o chaveamento e potência necessários são fornecidos por ele. Para isso, o ESC precisa receber um sinal PWM que será interpretado como a velocidade desejada, esse é o sinal de interesse do nosso trabalho.
+<p align="justify"> Para compreender o desenvolvimento do trabalho é preciso conhecer brevemente sobre o funcionamento dos equipamentos. 
+A velocidade motor escolhido é controlada por um dispositivo chamado ESC (Eletronic Speed Controller), todo o chaveamento e potência necessários são fornecidos por ele. Para isso, o ESC precisa receber um sinal PWM que será interpretado como a velocidade desejada, esse é o sinal de interesse do nosso trabalho. </p>
 
 
 1. Receber um valor de duty: dashboard MQTT -> ESP32
-2. 
+2. (ESP32) fazer a tratativa do valor recebido
 3.
 4.
 5.
