@@ -49,6 +49,7 @@ Para isso, o algoritmo implementado no esc seguirá o seguinte fluxograma:
 Coeficientes: a = 0,0415 e b = 200
 
 * 2ª Equação de reta:
+
 ((valor ajustado para a leitura do ADC pela primeira eq. de reta)-200)/(370-200)*((duty recebido no MQTT)-200) + 200;
 
 * Dashboard MQTT:
