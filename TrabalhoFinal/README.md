@@ -42,13 +42,17 @@ Para isso, o algoritmo implementado no esc seguirá o seguinte fluxograma:
 ## Resultados
 * Diagrama de conexões:
 
-* Sinal esperado pelo ESC: PWM com frequência de 50 Hz, largura de pulso entre 1,2 e 1,8 ms e Vpp do pulso de 5 V
+* Sinal esperado pelo ESC: 
+
+PWM com frequência de 50 Hz, largura de pulso entre 1,2 e 1,8 ms e Vpp do pulso de 5 V
 
 * 1ª equação de reta:
 <img src="img/reta1.jpg" alt="drawing" width="500"/>
 Coeficientes: a = 0,0415 e b = 200
 
-
+<html>
+    <br />
+</html>
 
 * 2ª Equação de reta:
 
