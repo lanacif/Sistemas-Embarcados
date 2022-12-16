@@ -133,12 +133,6 @@ CONFIG_PARTITION_TABLE_MD5=y
 # end of Partition Table
 
 #
-# Example Configuration
-#
-CONFIG_BROKER_URL="mqtt://mqtt.eclipseprojects.io"
-# end of Example Configuration
-
-#
 # Example Connection Configuration
 #
 CONFIG_EXAMPLE_GPIO_RANGE_MIN=0
