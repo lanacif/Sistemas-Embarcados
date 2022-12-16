@@ -59,6 +59,7 @@ Coeficientes: a = 0,0415 e b = 200
 
 * Trabalho em funcionamento:
 
+https://user-images.githubusercontent.com/17216806/208170759-70666423-6043-467c-8aff-e0cf58b1d571.mp4
 
 ## Conclusões
 
