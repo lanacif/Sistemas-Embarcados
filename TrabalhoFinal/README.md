@@ -54,6 +54,9 @@ Coeficientes: a = 0,0415 e b = 200
 * Dashboard MQTT:
 <img src="img/dashboard.jpg" alt="drawing" width="200"/>
 
+* Trabalho em funcionamento:
+
+
 ## Conclusões
 
 
