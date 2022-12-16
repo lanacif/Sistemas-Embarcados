@@ -69,7 +69,14 @@ https://user-images.githubusercontent.com/17216806/208170759-70666423-6043-467c-
 
 ## Conclusões
 
+O trablho final da disciplina de sistemas embarcados, possuia como principal objetivo, contemplar em um unico projeto tópicos estudados nas práticas durante o período letivo. Dentre  os assuntos exigídos, o trabalho abordou: 
 
+* Três periféricos: I/O, ADC e PWM;
+* Um sistema de comunicação: MQTT;
+* Duas Tasks e uma interrupção no processamento das informações;
+* Filas de intercomunicação entre Tasks;
+
+Durante as etapas de desenvolvimento do projeto, seguiu-se um "check list" como o objetivo de desenvolver o trabalho em etapas, o cumprimento destas fases foi de grande importância, sobretudo na organização do desenvolvimento do sistema proposto. Ao realizar uma análise de retrospecto na execução do prejeto, pode-se perceber o amadurecimento da equipe acerca dos tópicos tratados. A idealização do controle de velocidade de um motor brushless, favoreceu de forma positiva a solidificação do conhecimento adquirido durante todo semestre, além de permitir aos integrantes da equipe superar os desafios exigídos pelo trabalho. Portanto, é poossível concluir que os objetivos foram alcançados e toda experiência obtida com a disciplina de sistemas embarcados será de grande importância no futuro profissional dos discentes envolvidos.  
 
 
 
