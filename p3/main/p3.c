@@ -34,8 +34,6 @@ typedef struct {
     uint64_t timer_counter_value;
 } example_timer_event_t;
 
-static xQueueHandle s_timer_queue;
-
 static bool IRAM_ATTR  timer_group_isr_callback(void *args)
 {
     BaseType_t high_task_awoken = pdFALSE;
@@ -128,8 +126,6 @@ static void IRAM_ATTR gpio_isr_handler(void* arg)
 
 void app_main(void)
 {
-    s_timer_queue = xQueueCreate(10, sizeof(example_timer_event_t));
-
     //Iniciando os 3 timers
     example_tg_timer_config(TIMER_GROUP_0, TIMER_0, TIMER_COUNT_UP, true, 3,0);
     example_tg_timer_config(TIMER_GROUP_1, TIMER_0, TIMER_COUNT_UP, false, 5, 0);

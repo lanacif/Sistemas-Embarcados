@@ -19,6 +19,13 @@ static const int RX_BUF_SIZE = 1024;
 #define TXD_PIN (GPIO_NUM_4)
 #define RXD_PIN (GPIO_NUM_5)
 
+#define GPIO_OUTPUT_IO_0    4
+#define GPIO_OUTPUT_PIN_SEL  1ULL<<GPIO_OUTPUT_IO_0
+
+#define ESP_INTR_FLAG_DEFAULT 0
+
+bool LED_flag = 0;
+
 void init(void) {
     const uart_config_t uart_config = {
         .baud_rate = 115200,
@@ -44,11 +51,20 @@ int sendData(const char* logName, const char* data)
 
 static void tx_task(void *arg)
 {
+    int teste = 1;
     static const char *TX_TASK_TAG = "TX_TASK";
     esp_log_level_set(TX_TASK_TAG, ESP_LOG_INFO);
     while (1) {
-        sendData(TX_TASK_TAG, "Hello world");
-        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        if (teste%2 == 0){
+            sendData(TX_TASK_TAG, "TA NO IF\n");
+            printf("Entrei no if\n");
+        }
+        else{
+            sendData(TX_TASK_TAG, "TA NO ELSE\n");
+            printf("Entrei no else\n");
+        }
+        vTaskDelay(5000 / portTICK_PERIOD_MS);
+        teste++;
     }
 }
 
