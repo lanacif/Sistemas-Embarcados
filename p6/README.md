@@ -15,4 +15,5 @@ Ok
 # Questão 4
 
 Feito. 
-Obs: Frequência máxima = 0,5 Hz, enviar inteiros 1, 2, 3, 4 ... equivalente ao tempo ligado / desligado
+
+Obs: Frequência máxima = 0,5 Hz, enviar inteiros 1, 2, 3, 4 ... equivalente ao tempo em segundos ligado/desligado.
