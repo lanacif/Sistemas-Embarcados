@@ -10,7 +10,7 @@ Ok
 
 Ok
 
-<img src="img/1.jpg" alt="drawing" width="500"/>
+![alt text](img/1.jpg)
 
 # Questão 4
 
