@@ -25,15 +25,6 @@ typedef struct {
     timer_count_dir_t direction;
 } example_timer_info_t;
 
-/**
- * @brief A sample structure to pass events from the timer ISR to task
- *
- */
-typedef struct {
-    example_timer_info_t info;
-    uint64_t timer_counter_value;
-} example_timer_event_t;
-
 static bool IRAM_ATTR  timer_group_isr_callback(void *args)
 {
     BaseType_t high_task_awoken = pdFALSE;

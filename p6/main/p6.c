@@ -19,12 +19,23 @@ static const int RX_BUF_SIZE = 1024;
 #define TXD_PIN (GPIO_NUM_4)
 #define RXD_PIN (GPIO_NUM_5)
 
-#define GPIO_OUTPUT_IO_0    4
+#define GPIO_OUTPUT_IO_0    2
 #define GPIO_OUTPUT_PIN_SEL  1ULL<<GPIO_OUTPUT_IO_0
 
 #define ESP_INTR_FLAG_DEFAULT 0
 
 bool LED_flag = 0;
+
+static bool IRAM_ATTR  timer_group_isr_callback(void *args)
+{
+    BaseType_t high_task_awoken = pdFALSE;
+    example_timer_info_t *info = (example_timer_info_t *) args;
+
+    LED_flag = !LED_flag; //toggle led bit
+    gpio_set_level(GPIO_OUTPUT_IO_0, LED_flag);
+
+    return high_task_awoken == pdTRUE; // return whether we need to yield at the end of ISR
+}
 
 void init(void) {
     const uart_config_t uart_config = {
