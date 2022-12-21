@@ -10,4 +10,4 @@ Ok
 
 Feito utilizando UART0 para dispensar o FTDI32.
 
-![alt text](img/1.jpg)
+![alt text](img/1.png)
